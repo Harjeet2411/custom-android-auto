@@ -17,19 +17,27 @@ we've confirmed about the existing unit, and
 [`docs/architecture-decision.md`](docs/architecture-decision.md) for why we're
 not trying to flash it.
 
-## What we're building instead
+## Active path: jailbreaking the existing unit
 
-An open-source Android Auto **head-unit receiver** (the car side of the
-protocol), based on the same approach as `aasdk`/OpenAuto/Crankshaft-style
-projects, running on hardware that can actually decode video — a Raspberry Pi
-4/5, not the existing F133-based unit. This gives us:
+Since the unit is out of warranty and not working well, the current focus is
+getting low-level control of it (UART/FEL access, firmware dump) rather than
+replacing it with new hardware. See
+[`docs/jailbreak-guide.md`](docs/jailbreak-guide.md) for the step-by-step
+process — it's blocked on physical board photos/UART probing, which only
+you can do.
 
-- Full control over the on-screen UI (custom theme, layout, shortcuts)
-- Proper hardware video decode, fixing the lag
-- A platform we can actually extend (our own launcher, widgets, etc.)
+**Important:** this will *not* fix the Android Auto video lag. That's a
+fixed hardware ceiling (no GPU, software video decode on a single-core
+RISC-V chip) — see
+[`docs/architecture-decision.md`](docs/architecture-decision.md). The
+jailbreak's value is open access/control of the device itself.
 
-See [`docs/project-plan.md`](docs/project-plan.md) for the build plan and
-current status.
+## Longer-term option: a from-scratch receiver on better hardware
+
+If fixing the lag itself ever becomes the priority, [`docs/project-plan.md`](docs/project-plan.md)
+has a plan for building an open-source Android Auto **head-unit receiver**
+on a Raspberry Pi 4/5 instead, with real hardware video decode and full UI
+control. Not the active path right now.
 
 ## Quick wins on the existing unit (while the real build is in progress)
 

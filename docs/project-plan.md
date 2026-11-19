@@ -1,5 +1,11 @@
 # Project Plan: Custom Android Auto Receiver
 
+> **Status update:** active path is now the jailbreak of the existing F133
+> unit — see `jailbreak-guide.md`. This document's Raspberry Pi plan is kept
+> as the longer-term option if/when fixing the video lag itself becomes the
+> priority, since the jailbreak alone won't resolve that (fixed decode
+> hardware ceiling on the F133 — see `architecture-decision.md`).
+
 ## Goal
 
 A custom-UI Android Auto head unit, built on hardware capable of smooth
